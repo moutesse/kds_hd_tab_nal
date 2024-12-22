@@ -1,4 +1,4 @@
-CREATE OR REPLACE PROCEDURE etl.dds_weather()
+CREATE PROCEDURE etl.dds_weather()
 LANGUAGE sql
 AS $$
     TRUNCATE TABLE dds.airport_weather;
