@@ -1,6 +1,6 @@
 -- создание таблицы dds.airport_code с нужными форматами колонок и таблицы-справочника на etl
 
-CREATE TABLE dds.airport_code (
+CREATE TABLE dds.airport_code33 (
 	id int4 NOT NULL,
 	ident varchar(100) NOT NULL,
 	"type" varchar(100) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE dds.airport_code (
 );
 
 --решили справочник сделать именно по тем аэропортам, по которым есть полная информация
-CREATE TABLE etl.id_translate_airport (
+CREATE TABLE etl.id_translate_airport33 (
 	id int4 NOT NULL,
 	icao_code varchar NOT NULL,
 	iata_code varchar NOT NULL,
