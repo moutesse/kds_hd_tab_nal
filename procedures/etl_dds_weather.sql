@@ -1,7 +1,7 @@
 --Со слоя stg мы переносим данные о погоде в dds. Мы очищаем итоговую таблицу и заполняем заново,
 -- заполняя новые колонки согласно заданию
 
-CREATE PROCEDURE etl.dds_weather()
+CREATE or replace PROCEDURE etl.dds_weather()
 LANGUAGE sql
 AS $$
     TRUNCATE TABLE dds.airport_weather;
@@ -42,13 +42,11 @@ AS $$
         w.ff_wind_speed AS w_speed,
         TO_TIMESTAMP(w.local_datetime, 'DD.MM.YYYY HH24:MI') AS date_start,
         COALESCE(
-            TO_TIMESTAMP(
-                (SELECT MIN(local_datetime) 
-                 FROM stg.weather w2 
-                 WHERE w2.icao_code = w.icao_code AND w2.local_datetime > w.local_datetime),
-            'DD.MM.YYYY HH24:MI'),
-            '3000-01-01 00:00:00'::timestamp
-        ) AS date_end
+            (
+                SELECT MIN(TO_TIMESTAMP(w2.local_datetime, 'DD.MM.YYYY HH24:MI'))
+                FROM stg.weather w2
+                WHERE w2.icao_code = w.icao_code AND TO_TIMESTAMP(w2.local_datetime, 'DD.MM.YYYY HH24:MI') > TO_TIMESTAMP(w.local_datetime, 'DD.MM.YYYY HH24:MI')
+            ), '3000-01-01 00:00:00'::timestamp) AS date_end
     FROM stg.weather w INNER JOIN etl.id_translate_airport a ON w.icao_code = a.icao_code;
 $$;
 
