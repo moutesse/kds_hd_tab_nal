@@ -1,5 +1,5 @@
 --так как слой ods это сырые данные, все столбцы просто текстовые
-CREATE TABLE ods.flights (
+CREATE TABLE ods.flights33 (
 	"year" text NULL,
 	quarter text NULL,
 	"month" text NULL,
