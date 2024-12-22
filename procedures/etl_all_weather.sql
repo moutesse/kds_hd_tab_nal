@@ -1,3 +1,6 @@
+--Со слоя ods мы переносим данные о погоде в stg. Мы очищаем итоговую таблицу и заполняем заново,
+-- изменяя форматы колонок из text в нужные
+
 CREATE OR REPLACE PROCEDURE etl.all_weather()
 LANGUAGE sql
 AS $$
