@@ -1,3 +1,5 @@
+--процедура, которая заполняет справочник по аэропортам
+
 CREATE PROCEDURE etl.id_translate()
 LANGUAGE sql
 AS $$
