@@ -4,8 +4,8 @@
 create or replace PROCEDURE etl.all_airports()
 LANGUAGE sql
 AS $$
-    TRUNCATE TABLE dds.airport_code;
-    INSERT INTO dds.airport_code (
+    TRUNCATE TABLE dds.airport_code33;
+    INSERT INTO dds.airport_code33 (
         id,
         ident,
         "type",
@@ -44,7 +44,7 @@ AS $$
         CASE WHEN home_link = '' THEN NULL ELSE CAST(home_link AS VARCHAR(100)) END AS home_link,
         CASE WHEN wikipedia_link = '' THEN NULL ELSE CAST(wikipedia_link AS VARCHAR(100)) END AS wikipedia_link,
         CASE WHEN keywords = '' THEN NULL ELSE CAST(keywords AS VARCHAR(100)) END AS keywords
-    FROM ods.airport_code;
+    FROM ods.airport_code33;
 $$;
 
 call etl.all_airports();
