@@ -22,7 +22,7 @@ CREATE TABLE stg.flights33 (
 	CONSTRAINT flights_pkey PRIMARY KEY (flight_date, flight_number, origin, dest, crs_dep_time)
 );
 
-CREATE TABLE stg.weather (
+CREATE TABLE stg.weather33 (
 	icao_code varchar(10) NOT NULL,
 	local_datetime varchar(25) NOT NULL,
 	t_air_temperature numeric(3, 1) NOT NULL,
