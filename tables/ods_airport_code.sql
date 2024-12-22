@@ -1,6 +1,6 @@
 --так как слой ods это сырые данные, все столбцы просто текстовые
 
-CREATE TABLE ods.airport_code (
+CREATE TABLE ods.airport_code33 (
 	id text NULL,
 	ident text NULL,
 	"type" text NULL,
