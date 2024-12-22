@@ -1,6 +1,6 @@
 -- таблицы из презентации, но мало ли
 
-CREATE TABLE dds.flights (
+CREATE TABLE dds.flights33 (
 	"year" int4 NULL,
 	quarter int4 NULL,
 	"month" int4 NULL,
@@ -25,7 +25,7 @@ CREATE TABLE dds.flights (
 	CONSTRAINT lights_pk PRIMARY KEY (flight_dep_scheduled_ts, flight_number_reporting_airline, origin_code, dest_code)
 );
 
-CREATE TABLE dds.airport_weather (
+CREATE TABLE dds.airport_weather33 (
 	airport_dk int4 NOT NULL,
 	weather_type_dk bpchar(6) NOT NULL,
 	cold int2 DEFAULT 0 NULL,
