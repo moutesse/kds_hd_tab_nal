@@ -1,5 +1,5 @@
 --так как слой ods это сырые данные, все столбцы просто текстовые
-CREATE TABLE ods.weather (
+CREATE TABLE ods.weather33 (
 	icao_code text NULL,
 	local_datetime text NULL,
 	t_air_temperature text NULL,
