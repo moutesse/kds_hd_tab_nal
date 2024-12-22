@@ -4,8 +4,8 @@
 CREATE OR REPLACE PROCEDURE etl.all_flights()
 LANGUAGE sql
 AS $$
- TRUNCATE TABLE stg.flights;
- INSERT INTO stg.flights (
+ TRUNCATE TABLE stg.flights33;
+ INSERT INTO stg.flights33 (
         "year", 
         quarter, 
         "month", 
@@ -41,7 +41,7 @@ AS $$
         CASE WHEN distance = '' THEN NULL ELSE CAST(distance AS FLOAT) END AS distance,
         CAST(origin AS VARCHAR(100)) AS origin,
         CAST(dest AS VARCHAR(100)) AS dest
-   FROM ods.flights;
+   FROM ods.flights33;
 $$;
 
 call etl.all_flights();
