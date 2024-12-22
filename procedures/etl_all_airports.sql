@@ -1,3 +1,6 @@
+--Со слоя ods мы переносим данные об аэропорта в dds. Мы очищаем итоговую таблицу и заполняем заново,
+-- изменяя форматы колонок из text в нужные
+
 create or replace PROCEDURE etl.all_airports()
 LANGUAGE sql
 AS $$
