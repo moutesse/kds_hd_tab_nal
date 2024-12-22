@@ -1,8 +1,8 @@
 CREATE PROCEDURE etl.mart_fact_departure()
 LANGUAGE sql
 AS $$
-    TRUNCATE TABLE mart.fact_departure;
-    INSERT INTO mart.fact_departure (
+    TRUNCATE TABLE mart.fact_departure33;
+    INSERT INTO mart.fact_departure33 (
         airport_origin_dk,
         airport_destination_dk,
         flight_scheduled_ts,
@@ -35,7 +35,7 @@ AS $$
         w.max_gws,
         w.w_speed,
         f.air_time
-    FROM dds.flights f JOIN dds.airport_weather w ON f.airport_origin_dk = w.airport_dk AND f.flight_dep_scheduled_ts > w.date_start AND f.flight_dep_scheduled_ts <= w.date_end;
+    FROM dds.flights33 f JOIN dds.airport_weather33 w ON f.airport_origin_dk = w.airport_dk AND f.flight_dep_scheduled_ts > w.date_start AND f.flight_dep_scheduled_ts <= w.date_end;
 $$;
 
 CALL etl.mart_fact_departure();
