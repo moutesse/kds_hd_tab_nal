@@ -1,6 +1,6 @@
 -- таблицы из презентации, но мало ли надо
 
-CREATE TABLE stg.flights (
+CREATE TABLE stg.flights33 (
 	"year" int4 NOT NULL,
 	quarter int4 NULL,
 	"month" int4 NOT NULL,
