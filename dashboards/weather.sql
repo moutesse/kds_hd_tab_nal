@@ -9,7 +9,7 @@ SELECT
         WHEN SUBSTRING(weather_type_dk, 5, 1)='1' THEN 'Drizzle'
         WHEN SUBSTRING(weather_type_dk, 6, 1)='1' THEN 'Fog_Mist' ELSE 'Clear' END AS weather,
     ABS(AVG(dep_delay_min)) AS earlier
-FROM mart.fact_departure WHERE dep_delay_min <=0 GROUP BY weather ORDER BY earlier ASC;
+FROM mart.fact_departure33 WHERE dep_delay_min <=0 GROUP BY weather ORDER BY earlier ASC;
 
 SELECT 
     CASE 
@@ -20,7 +20,7 @@ SELECT
         WHEN SUBSTRING(weather_type_dk, 5, 1)='1' THEN 'Drizzle'
         WHEN SUBSTRING(weather_type_dk, 6, 1)='1' THEN 'Fog_Mist' ELSE 'Clear' END AS weather,
     ABS(AVG(dep_delay_min)) AS earlier
-FROM mart.fact_departure WHERE dep_delay_min > 0 GROUP BY weather ORDER BY earlier ASC;
+FROM mart.fact_departure33 WHERE dep_delay_min > 0 GROUP BY weather ORDER BY earlier ASC;
 
 SELECT 
     CASE 
@@ -31,4 +31,4 @@ SELECT
         WHEN SUBSTRING(weather_type_dk, 5, 1)='1' THEN 'Drizzle'
         WHEN SUBSTRING(weather_type_dk, 6, 1)='1' THEN 'Fog/Mist'
         ELSE 'Clear' END AS weather, SUM(cancelled) AS cancelled
-FROM mart.fact_departure GROUP BY weather ORDER BY cancelled ASC;
+FROM mart.fact_departure33 GROUP BY weather ORDER BY cancelled ASC;
