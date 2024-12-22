@@ -4,8 +4,8 @@
 CREATE OR REPLACE PROCEDURE etl.dds_flights()
 LANGUAGE sql
 AS $$
-    TRUNCATE TABLE dds.flights;
-    INSERT INTO dds.flights (
+    TRUNCATE TABLE dds.flights33;
+    INSERT INTO dds.flights33 (
         "year", 
         quarter, 
         "month", 
@@ -42,9 +42,9 @@ AS $$
         f.reporting_airline AS report_airline,
         f.tail_number,
         f.flight_number AS flight_number_reporting_airline,
-        (SELECT id FROM dds.airport_code WHERE iata_code = f.origin LIMIT 1) AS airport_origin_dk,
+        (SELECT id FROM dds.airport_code33 WHERE iata_code = f.origin LIMIT 1) AS airport_origin_dk,
         f.origin AS origin_code,
-        (SELECT id FROM dds.airport_code WHERE iata_code = f.dest LIMIT 1) AS airport_origin_dk,
+        (SELECT id FROM dds.airport_code33 WHERE iata_code = f.dest LIMIT 1) AS airport_origin_dk,
         f.dest AS dest_code,
         f.dep_delay_minutes,
         f.cancelled,
@@ -52,7 +52,7 @@ AS $$
         f.weather_delay,
         f.air_time,
         f.distance
-    FROM stg.flights f;
+    FROM stg.flights33 f;
 $$;
 
 call etl.dds_flights();
