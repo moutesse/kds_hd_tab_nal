@@ -4,8 +4,8 @@
 CREATE OR REPLACE PROCEDURE etl.all_weather()
 LANGUAGE sql
 AS $$
- TRUNCATE TABLE stg.weather;
- INSERT INTO stg.weather (
+ TRUNCATE TABLE stg.weather33;
+ INSERT INTO stg.weather33 (
      icao_code, 
      local_datetime, 
      t_air_temperature, 
@@ -36,7 +36,7 @@ AS $$
      CAST(c_total_clouds AS VARCHAR(200)) AS c_total_clouds,
      CAST(vv_horizontal_visibility AS NUMERIC(3, 1)) AS vv_horizontal_visibility,
      CAST(td_temperature_dewpoint AS NUMERIC(3, 1)) AS td_temperature_dewpoint
- FROM ods.weather;
+ FROM ods.weather33;
 $$;
 
 CALL etl.all_weather();
