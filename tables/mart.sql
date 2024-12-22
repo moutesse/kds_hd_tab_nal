@@ -1,4 +1,4 @@
-CREATE TABLE mart.fact_departure (
+CREATE TABLE mart.fact_departure33 (
     airport_origin_dk INT NOT NULL,
     airport_destination_dk INT NOT NULL,
     flight_scheduled_ts TIMESTAMP NOT NULL,
