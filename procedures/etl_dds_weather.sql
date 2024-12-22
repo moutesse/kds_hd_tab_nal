@@ -4,8 +4,8 @@
 CREATE or replace PROCEDURE etl.dds_weather()
 LANGUAGE sql
 AS $$
-    TRUNCATE TABLE dds.airport_weather;
-    INSERT INTO dds.airport_weather (
+    TRUNCATE TABLE dds.airport_weather33;
+    INSERT INTO dds.airport_weather33 (
         airport_dk,
         weather_type_dk,
         cold,
@@ -44,10 +44,10 @@ AS $$
         COALESCE(
             (
                 SELECT MIN(TO_TIMESTAMP(w2.local_datetime, 'DD.MM.YYYY HH24:MI'))
-                FROM stg.weather w2
+                FROM stg.weather33 w2
                 WHERE w2.icao_code = w.icao_code AND TO_TIMESTAMP(w2.local_datetime, 'DD.MM.YYYY HH24:MI') > TO_TIMESTAMP(w.local_datetime, 'DD.MM.YYYY HH24:MI')
             ), '3000-01-01 00:00:00'::timestamp) AS date_end
-    FROM stg.weather w INNER JOIN etl.id_translate_airport a ON w.icao_code = a.icao_code;
+    FROM stg.weather33 w INNER JOIN etl.id_translate_airport33 a ON w.icao_code = a.icao_code;
 $$;
 
 call etl.dds_weather();
