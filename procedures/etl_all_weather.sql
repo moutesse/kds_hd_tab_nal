@@ -21,7 +21,7 @@ AS $$
      vv_horizontal_visibility, 
      td_temperature_dewpoint
  )
- SELECT
+ SELECT DISTINCT
      CAST(icao_code AS VARCHAR(10)) AS icao_code,
      CAST(local_datetime AS VARCHAR(25)) AS local_datetime,
      CAST(t_air_temperature AS NUMERIC(3, 1)) AS t_air_temperature,
