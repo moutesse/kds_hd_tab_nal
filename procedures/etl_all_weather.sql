@@ -36,7 +36,7 @@ AS $$
      CAST(c_total_clouds AS VARCHAR(200)) AS c_total_clouds,
      CAST(vv_horizontal_visibility AS NUMERIC(3, 1)) AS vv_horizontal_visibility,
      CAST(td_temperature_dewpoint AS NUMERIC(3, 1)) AS td_temperature_dewpoint
- FROM ods.weather33;
+ FROM ods.weather33 ON CONFLICT (icao_code, local_datetime) DO NOTHING;
 $$;
 
 CALL etl.all_weather();
