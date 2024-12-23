@@ -44,7 +44,7 @@ AS $$
         CASE WHEN home_link = '' THEN NULL ELSE CAST(home_link AS VARCHAR(100)) END AS home_link,
         CASE WHEN wikipedia_link = '' THEN NULL ELSE CAST(wikipedia_link AS VARCHAR(100)) END AS wikipedia_link,
         CASE WHEN keywords = '' THEN NULL ELSE CAST(keywords AS VARCHAR(100)) END AS keywords
-    FROM ods.airport_code33;
+    FROM ods.airport_code33 ON CONFLICT (id) DO NOTHING;
 $$;
 
 call etl.all_airports();
