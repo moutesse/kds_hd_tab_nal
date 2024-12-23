@@ -41,7 +41,7 @@ AS $$
         CASE WHEN distance = '' THEN NULL ELSE CAST(distance AS FLOAT) END AS distance,
         CAST(origin AS VARCHAR(100)) AS origin,
         CAST(dest AS VARCHAR(100)) AS dest
-   FROM ods.flights33;
+   FROM ods.flights33 ON CONFLICT (flight_date, flight_number, origin, dest, crs_dep_time) DO NOTHING;
 $$;
 
 call etl.all_flights();
