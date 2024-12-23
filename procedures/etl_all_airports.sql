@@ -25,7 +25,7 @@ AS $$
         wikipedia_link,
         keywords
     )
-    SELECT
+    SELECT DISTINCT
         CAST(id AS INT) AS id,
         CAST(ident AS VARCHAR(100)) AS ident,
         CAST("type" AS VARCHAR(100)) AS "type",
