@@ -23,7 +23,7 @@ AS $$
         distance, 
         origin, 
         dest)
- SELECT DISTINCT
+ SELECT
         CAST("year" AS INT) AS "year",
         CAST(quarter AS INT) AS quarter,
         CAST("month" AS INT) AS "month",
